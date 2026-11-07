@@ -38,16 +38,19 @@ description: >-
 
 ### 2. 用 Archify 起草 `candidate.archify.md`
 
-- 读 `~/.agents/skills/archify/references/explainer-authoring.md`
+- 先找到已安装的 Archify 技能目录（下文记作 `<ARCHIFY>`），常见位置依次是：`~/.agents/skills/archify`、`~/.codex/skills/archify`、`~/.claude/skills/archify`、`~/.cursor/skills/archify`；都没有就提示用户先运行 `npx skills add tt-a1i/archify -g`
+- 读 `<ARCHIFY>/references/explainer-authoring.md`
 - `@meta locale=` 跟用户语言；`style=editorial`
 - 主流程用 `@workflow`（决策节点标签以 `?` 结尾）；时长用 `@timeline`，估算写入 `@answer scope=` 与 callout
 - `@steps` 绑定图上节点；提示词放原文，笔误用 callout 注明
 - 工作目录：`.archify/explainer-<slug>-<YYYYMMDD-HHMMSS>/`
-- CLI：`node ~/.agents/skills/archify/bin/archify.mjs finalize explainer <draft.md> <out.html> --json`
+- CLI：`node <ARCHIFY>/bin/archify.mjs finalize explainer <draft.md> <out.html> --json`
 
 ### 3. 换肤（唯一的 diagram-design 步骤）
 
-finalize 通过后，在 `</head>` 前插入一段确定性 CSS（浅色必做；深色只调对应变量）：
+finalize 通过后，在 `</head>` 前插入一段确定性 CSS（浅色必做；深色只调对应变量）。本技能自带现成文件：`assets/dd-skin.css`，可用 `node <本技能目录>/scripts/apply-skin.mjs <out.html> <skinned.html>` 插入（另存新文件，保留 finalize 原件以便回退）：
+
+- 浅色变量只写在 `html[data-theme="light"], html:not([data-theme="dark"])` 下，**不要**写在 `:root` 上，否则会把深色主题的底色也强行改成浅色
 
 - `--accent` → `#bf4520`（及 soft/ink 衍生）
 - `--paper` → `#f5f5f5`；`--ink` → `#2d3142`；`--muted` → `#4f5d75`
@@ -69,7 +72,7 @@ finalize 通过后，在 `</head>` 前插入一段确定性 CSS（浅色必做�
 ### 5. 截图与附件
 
 - 原文关键截图：每主流程阶段最多 1–2 张，用 `@image`
-- 交付：聊天附件发最终 HTML（优先英文文件名，如 `wx-minigame-guide-fused.html`）；再 `CopyFromBox` 到用户本机允许根目录（Downloads 常被拒时落到家目录）
+- 交付：把换肤后的最终 HTML 发给用户（优先英文文件名，如 `longform-guide.html`），并告诉用户文件保存的位置；同时保留 finalize 原件与 `candidate.archify.md`
 - 不写社群引流、加微信、卖课
 
 ## 验收清单

@@ -1,0 +1,42 @@
+/* diagram-design skin for Archify explainer pages.
+   Only CSS variables and a few safe rules. Never edit Archify scripts. */
+
+/* Light theme (also used when the page is not in dark mode) */
+html[data-theme="light"],
+html:not([data-theme="dark"]) {
+  --paper: #f5f5f5 !important;
+  --bg: #f5f5f5 !important;
+  --surface: #fafafa !important;
+  --panel: #fafafa !important;
+  --ink: #2d3142 !important;
+  --text: #2d3142 !important;
+  --muted: #4f5d75 !important;
+  --text-muted: #4f5d75 !important;
+  --accent: #bf4520 !important;
+  --accent-soft: #f6e4dc !important;
+  --accent-ink: #9a3517 !important;
+  --arrow-emphasis: #bf4520 !important;
+  --step: #bf4520 !important;
+}
+
+/* Dark theme: only the accent family changes; Archify keeps its dark paper/ink */
+html[data-theme="dark"],
+html[data-theme="dark"][data-style] {
+  --accent: #e0714a !important;
+  --accent-soft: #3a2219 !important;
+  --accent-ink: #f0a080 !important;
+  --arrow-emphasis: #e0714a !important;
+  --step: #e0714a !important;
+}
+
+/* CJK-friendly fonts */
+body { font-family: "Geist", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
+h1, h2, h3 { font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", Georgia, serif; }
+
+/* No shadows, small radius */
+*, *::before, *::after { box-shadow: none !important; }
+section, article, aside, figure, .panel, [class*="panel"], [class*="card"], [class*="callout"] {
+  border-radius: min(8px, var(--dd-r, 8px)) !important;
+}
+
+a { color: var(--accent); }

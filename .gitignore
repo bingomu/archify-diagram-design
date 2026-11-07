@@ -1,0 +1,19 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Archify working folders and receipts
+.archify/
+*.finalize.json
+*.finalize-summary.json
+*.delivery.json
+
+# Local scratch
+*.tmp
+tmp/
