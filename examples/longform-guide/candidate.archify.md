@@ -1,13 +1,13 @@
 # 怎样把一篇长文做成可视化攻略？ {#longform-guide}
 
-**先定结论，再让 Archify 出图，最后只用 CSS 换肤**：大约 40 分钟，就能得到一页能点、能导出长图的攻略。
+**先定结论，再让 Archify 出图，最后只用 CSS 换肤**：交给 AI 几分钟就能出一页能点、能导出长图的攻略。
 
 - 读者先看结论，再按需展开流程图和步骤。
 - 流程、时长和清单都由 Archify 原生渲染，可以缩放和联动高亮。
 - 换肤只改颜色、字体和阴影，不碰交互脚本。
 - 交付前用浏览器验收导出菜单，坏了就回退原件。
 
-@answer scope="演示稿：以一篇约 5000 字的教程为例；各环节时长为估算"
+@answer scope="演示稿：以一篇约 5000 字的教程为例，全程由 AI 完成；时长为估算"
 @meta locale=zh-CN style=editorial
 @source archify title="Archify：可交互图表与一页解释页" url=https://github.com/tt-a1i/archify
 @source dd title="diagram-design：编辑风格图表设计规范" url=https://github.com/cathrynlavery/diagram-design
@@ -47,21 +47,21 @@
 
 ## 每个环节大概花多久？ {#timing}
 
-@timeline id=guide-timeline title="一次典型制作的时间线（估算）"
+@timeline id=guide-timeline title="一次典型制作的时间线（AI 代劳，估算）"
 | lane plan | 规划 |
 | lane build | 生成 |
 | lane ship | 交付 |
 | t-read | 2026-11-07T09:00:00+00:00 | 开始通读长文 | plan | default |
-| t-verdict | 2026-11-07T09:10:00+00:00 | 结论定稿 | plan | action |
-| t-draft | 2026-11-07T09:15:00+00:00 | 开始写草稿 | build | change |
-| t-final | 2026-11-07T09:30:00+00:00 | finalize 通过 | build | recovery |
-| t-skin | 2026-11-07T09:32:00+00:00 | 换肤完成 | build | change |
-| t-check | 2026-11-07T09:35:00+00:00 | 导出验收 | ship | alert |
-| t-ship | 2026-11-07T09:40:00+00:00 | 交付 HTML | ship | recovery |
+| t-verdict | 2026-11-07T09:00:30+00:00 | 结论定稿 | plan | action |
+| t-draft | 2026-11-07T09:01:00+00:00 | 开始写草稿 | build | change |
+| t-final | 2026-11-07T09:03:00+00:00 | finalize 通过 | build | recovery |
+| t-skin | 2026-11-07T09:03:30+00:00 | 换肤完成 | build | change |
+| t-check | 2026-11-07T09:04:00+00:00 | 导出验收 | ship | alert |
+| t-ship | 2026-11-07T09:05:00+00:00 | 交付 HTML | ship | recovery |
 
-@callout level=note title="时长是估算"
-时间线按一篇约 5000 字的教程估算，实际取决于原文长度和截图数量。
-写草稿通常最花时间，约占总时长的 40%。
+@callout level=note title="AI 几分钟做完"
+通读、写草稿、生成、换肤和验收都由 AI 完成，通常几分钟就够。
+人的时间主要花在挑文章和检查成品上。
 
 ## 换肤改了什么，没改什么？ {#skin}
 
